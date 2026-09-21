@@ -3,152 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <title>Revista recadinhos para o Deco, com muito amor</title>
+    <title>Revista recadinhos para o Deco</title>
     <style>
-        body { font-family: sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; padding: 20px; }
-        .wrapper { max-width: 650px; margin: 0 auto; }
-        h1 { font-size: 2rem; font-weight: bold; margin-top: 10px; }
-        h2 { font-size: 1.4rem; font-weight: bold; margin-top: 30px; border-bottom: 1px solid #cccccc; padding-bottom: 5px; }
-        .tag { font-size: 0.8rem; color: #666666; font-weight: bold; text-transform: uppercase; }
-        .sub { color: #555555; font-size: 1rem; margin-bottom: 20px; }
-        .quote { font-style: italic; background-color: #f5f5f5; padding: 10px; border-left: 3px solid #ff0000; margin-bottom: 20px; }
-        p { font-size: 1rem; margin-bottom: 15px; text-align: justify; }
-        .box-charada { background-color: #fff9db; padding: 15px; border-radius: 8px; margin: 20px 0; border: 1px solid #ffe3e3; }
-        .box-acrostico { background-color: #fafafa; padding: 15px; border-radius: 8px; margin: 20px 0; font-size: 1.1rem; border: 1px solid #eee; }
-        .box-entrevista { background-color: #f1f3f5; padding: 15px; border-radius: 8px; margin: 20px 0; }
-        .img-bloco { width: 100%; border-radius: 12px; margin-bottom: 20px; display: block; }
-        .marcado { background-color: #fff9db; font-weight: bold; padding: 0 4px; }
-        .btn-musica { background-color: #111111; color: #ffffff; text-decoration: none; padding: 12px 25px; border-radius: 25px; font-weight: bold; display: inline-block; font-size: 0.95rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .rodape { margin-top: 50px; padding-top: 15px; border-top: 1px solid #eee; font-size: 0.9rem; color: #565656; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fcf8f8; color: #333333; line-height: 1.6; margin: 0; padding: 0; }
+        
+        /* TELA DE BLOQUEIO */
+        #tela-bloqueio {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #fff5f7 0%, #fde2e4 100%);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 9999; transition: opacity 0.5s ease; padding: 20px; box-sizing: border-box; text-align: center;
+        }
+        .lock-card { background: white; padding: 35px 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(214, 51, 132, 0.1); border: 2px dashed #d63384; max-width: 400px; }
+        .lock-title { color: #0056b3; font-size: 24px; font-weight: bold; margin-bottom: 10px; }
+        .lock-sub { color: #6c757d; font-size: 15px; margin-bottom: 25px; }
+        .btn-desbloquear { background-color: #d63384; color: white; border: none; padding: 15px 30px; font-size: 16px; font-weight: bold; border-radius: 30px; cursor: pointer; box-shadow: 0 5px 15px rgba(214, 51, 132, 0.3); transition: transform 0.2s; }
+        .btn-desbloquear:hover { transform: scale(1.05); }
+
+        /* CONTEÚDO DO SITE (Escondido no começo) */
+        #conteudo-site { display: none; padding: 20px; }
+        
+        .header-top { background-color: #0056b3; color: white; text-align: center; padding: 10px 0; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .container { max-width: 650px; margin: 20px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid #0056b3; }
+        h1 { color: #0056b3; font-size: 26px; text-align: center; margin-bottom: 5px; }
+        .subtitle { text-align: center; color: #d63384; font-weight: bold; margin-bottom: 25px; }
+        h2 { color: #0056b3; border-bottom: 2px solid #dee2e6; padding-bottom: 5px; margin-top: 35px; }
+        .acrostic { background-color: #f1f3f5; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .acrostic p { margin: 8px 0; font-size: 18px; }
+        .acrostic strong { color: #d63384; font-size: 22px; }
+        .quote-box { background-color: #f8f9fa; border-left: 4px solid #d63384; padding: 15px; font-style: italic; margin: 20px 0; color: #555; }
+        .footer { text-align: center; margin-top: 40px; font-size: 12px; color: #6c757d; border-top: 1px solid #dee2e6; padding-top: 15px; }
+        p { text-align: justify; margin-bottom: 15px; }
+
+        /* ESTILO DO CONTADOR LINDO */
+        .countdown-container { background: #fff5f7; border: 2px dashed #d63384; border-radius: 15px; padding: 20px; text-align: center; max-width: 450px; margin: 25px auto; box-shadow: 0 4px 10px rgba(214, 51, 132, 0.05); }
+        .countdown-title { color: #0056b3; font-weight: bold; font-size: 16px; margin-bottom: 15px; }
+        .countdown-box { display: flex; justify-content: center; gap: 12px; }
+        .countdown-item { background: #0056b3; color: white; border-radius: 8px; padding: 10px; min-width: 65px; box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2); }
+        .countdown-number { display: block; font-size: 24px; font-weight: bold; font-family: sans-serif; }
+        .countdown-label { font-size: 11px; text-transform: uppercase; opacity: 0.9; display: block; margin-top: 2px; }
+        .countdown-footer { color: #d63384; font-weight: bold; margin-top: 15px; font-size: 15px; }
+        
+        .btn-player { display: block; background-color: #28a745; color: white; text-align: center; padding: 12px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 25px auto; max-width: 450px; border: none; cursor: pointer; }
+        #video-fundo { display: none; }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="tag">EDIÇÃO ESPECIAL DANY ZIKA</div>
-        <h1>Revista recadinhos para o Deco, com muito amor</h1>
-        <!-- 1. ESSA PARTE CRIA AS CAIXINHAS NA TELA -->
-<div class="countdown-container">
-    <div class="countdown-title">Contando os dias até 17 de Outubro 🗓️</div>
-    <div class="countdown-box">
-        <div class="countdown-item">
-            <span class="countdown-number" id="dias">00</span>
-            <span class="countdown-label">Dias</span>
-        </div>
-        <div class="countdown-item">
-            <span class="countdown-number" id="horas">00</span>
-            <span class="countdown-label">Horas</span>
-        </div>
-        <div class="countdown-item">
-            <span class="countdown-number" id="minutos">00</span>
-            <span class="countdown-label">Min</span>
-        </div>
-        <div class="countdown-item">
-            <span class="countdown-number" id="segundos">00</span>
-            <span class="countdown-label">Seg</span>
+
+    <!-- TELA DE BLOQUEIO INTERATIVA -->
+    <div id="tela-bloqueio">
+        <div class="lock-card">
+            <div class="lock-title">Surpresa para o meu Deco! ❤️</div>
+            <div class="lock-sub">Prepare os fones de ouvido e clique abaixo para abrir sua revista especial.</div>
+            <button class="btn-desbloquear" onclick="desbloquearSite()">🔓 Abrir Revista</button>
         </div>
     </div>
-    <div class="countdown-footer">para o nosso dia! ❤️</div>
-</div>
 
-<!-- 2. ESSA PARTE PINTA AS CAIXINHAS DE AZUL E ROSA -->
-<style>
-    .countdown-container { background: #fff5f7; border: 2px dashed #d63384; border-radius: 15px; padding: 20px; text-align: center; max-width: 450px; margin: 25px auto; box-shadow: 0 4px 10px rgba(214, 51, 132, 0.05); }
-    .countdown-title { color: #0056b3; font-weight: bold; font-size: 16px; margin-bottom: 15px; }
-    .countdown-box { display: flex; justify-content: center; gap: 12px; }
-    .countdown-item { background: #0056b3; color: white; border-radius: 8px; padding: 10px; min-width: 65px; box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2); }
-    .countdown-number { display: block; font-size: 24px; font-weight: bold; font-family: sans-serif; }
-    .countdown-label { font-size: 11px; text-transform: uppercase; opacity: 0.9; display: block; margin-top: 2px; }
-    .countdown-footer { color: #d63384; font-weight: bold; margin-top: 15px; font-size: 15px; }
-</style>
+    <!-- VIDEO QUE FICA EM SEGREDO APENAS TOCANDO O SOM -->
+    <video id="video-fundo" loop>
+        <source src="musica.mp4" type="video/mp4">
+    </video>
 
-<!-- 3. ESSA PARTE FAZ OS NÚMEROS DIMINUÍREM SOZINHOS -->
-<script>
-    const dataAlvo = new Date("Oct 17, 2026 00:00:00").getTime();
-    const intervalo = setInterval(function() {
-        const agora = new Date().getTime();
-        const diferenca = dataAlvo - agora;
-        const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-        const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-        const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
-        document.getElementById("dias").innerHTML = dias < 10 ? "0" + dias : dias;
-        document.getElementById("horas").innerHTML = horas < 10 ? "0" + horas : horas;
-        document.getElementById("minutos").innerHTML = minutos < 10 ? "0" + minutos : minutos;
-        document.getElementById("segundos").innerHTML = segundos < 10 ? "0" + segundos : segundos;
-        if (diferenca < 0) {
-            clearInterval(intervalo);
-            document.querySelector(".countdown-box").style.display = "none";
-            document.querySelector(".countdown-title").innerHTML = "Chegou o nosso grande dia! 🥰🎉";
-            document.querySelector(".countdown-footer").style.display = "none";
-        }
-    }, 1000);
-</script>
-
+    <!-- CONTEÚDO PRINCIPAL DO SITE -->
+    <div id="conteudo-site">
+        <div class="header-top">EDIÇÃO ESPECIAL DANY ZIKA</div>
+        <div class="container">
+            <h1>Revista recadinhos para o Deco, com muito amor</h1>
             
-        <div class="quote">"nossa cara quando a gente tá separado... tristinhos olha que dó"</div>
+            <!-- Painel do Contador Rodando -->
+            <div class="countdown-container">
+                <div class="countdown-title">Contando os dias até 17 de Outubro 🗓️</div>
+                <div class="countdown-box">
+                    <div class="countdown-item"><span class="countdown-number" id="dias">00</span><span class="countdown-label">Dias</span></div>
+                    <div class="countdown-item"><span class="countdown-number" id="horas">00</span><span class="countdown-label">Horas</span></div>
+                    <div class="countdown-item"><span class="countdown-number" id="minutos">00</span><span class="countdown-label">Min</span></div>
+                    <div class="countdown-item"><span class="countdown-number" id="segundos">00</span><span class="countdown-label">Seg</span></div>
+                </div>
+                <div class="countdown-footer">para o nosso dia! ❤️</div>
+            </div>
 
-        <!-- CONFIGURADO EXATAMENTE PARA CAPA.JPG DA SUA IMAGEM -->
-        <img src="capa.jpg" class="img-bloco" alt="Nossa Foto Especial">
+            <button class="btn-player" id="btn-player" onclick="controlarMusica()">⏸️ Tocando: Que Nem Maré</button>
 
-        <div style="text-align: center; margin: 25px 0;">
-            <a href="https://www.youtube.com/watch?v=tPpOnU5QL_s" target="_blank" class="btn-musica">🎵 Clique aqui para ouvir "Que Nem Maré" enquanto lê</a>
+            <p>Oi, Deco, olha quemmmm está fazendo um site surpresa agora heinnn... se você pensou na sua namorada favorita, você acertouuu (espero q eu seja a única kkkk brincadeira amor)!</p>
+
+            <p>Bom, decidi fazer essa revistinha de fofocas e recadinhos para você porque ultimamente estamos conversando bastante sobre o nosso futuro, sobre as marcas que nós já deixamos um na vida do outro (ifood, americanas, Pernambucanas, havaianas..... as marcas são infinitas kkkkk). Mas, principalmente, sobre a marca que Jesus deixou em nós.</p>
+
+            <div class="acrostic">
+                <p><strong>A</strong> mado</p>
+                <p><strong>N</strong> namorado</p>
+                <p><strong>D</strong> edicado</p>
+                <p><strong>R</strong> romântico</p>
+                <p><strong>E</strong> special</p>
+            </div>
+
+            <p>Obrigada por ser esse homem de Deus para mim, o homem que eu orei e pedi para o Senhor! Obrigada por cuidar de mim, por me amar, por me mipar (sei que essa palavra não existe, mas você entendeu kkkk). Obrigada por tudo, você é incrível dms, sinto muito orgulho de você e do homem que você está se tornando, você vai longe Deco!</p>
+
+            <div class="quote-box">
+                "nossa cara quando a gente tá separado... tristinhos olha que dó"
+            </div>
+
+            <h2>💻 Nosso Aplicativo e Nosso Futuro</h2>
+            <p>Tenho pensado muito no nosso aplicativo e no nosso propósito até o dia 17 de outubro. Sinto uma certa urgência de levar as coisas para Deus, de orar mais por nós, pelo nosso futuro, pelas nossas famílias e pelos nossos sonhos. Eu sei que o inimigo tenta nos afastar e colocar barreiras, mas eu creio que o nosso amor é mais forte porque ele vem de Deus.</p>
+
+            <p>Quero que esse tempo até outubro seja um tempo de consagração, de jejum, de oração e de muita intimidade com o Senhor. Que a gente possa se apoiar e crescer juntos espiritualmente. Eu te amo muito e estou com você nessa!</p>
+
+            <h2>🎤 Entrevista com a Dany Repórter</h2>
+            <p><strong>Dany:</strong> Deco, como é ser o homem mais sortudo do mundo por ter a Dany como namorada?<br>
+            <strong>Deco:</strong> É maravilhoso, ela é perfeita, maravilhosa, inteligente, linda... (pode continuar elogiando kkkk)</p>
+
+            <p><strong>Dany:</strong> E qual o segredo para aguentar essa namorada tão zika?<br>
+            <strong>Deco:</strong> Muito amor, paciência e claro, muito açúcar para aguentar tanta doçura (ou braveza kkkk)</p>
+
+            <p>O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha. Não maltrata, não procura seus interesses, não se ira facilmente, não guarda rancor. O amor não se alegra com a injustiça, mas se alegra com a verdade. Tudo sofre, tudo crê, tudo espera, tudo suporta. (1 Coríntios 13:4-7)</p>
+
+            <div class="footer">🔒 Edição Especial Dany Zika · Escrito com fé</div>
         </div>
-        <div style="color: #e25555; font-size: 1.5rem; margin: 15px 0;">❤</div>
+    </div>
 
-        <p>Oi, Deco, olha quemmmm está fazendo um site surpresa agora heinnn, quem diria que eu conseguiria, dedico esse email ao gpt, vs code, github, piracicabana, ifood, americanas, pernambucanas, havaianas.....</p>
-        <p>bom, espero conseguir fazer esse email tao divertido quanto os seus rsrsrs. eu me lembrei que você começava com uma charadinha então lá vai:</p>
+    <script>
+        function desbloquearSite() {
+            const video = document.getElementById("video-fundo");
+            video.play().catch(function(error) {
+                console.log("Navegador barrou o som inicial: ", error);
+            });
 
-        <div class="box-charada">
-            <strong>Sabe qual é a diferença entre um relógio e você?...</strong><br><br>
-            <em>Resposta: O relógio avisa o tempo que passou, e com você eu perco a noção do tempo. 🥰</em>
-        </div>
+            document.getElementById("tela-bloqueio").style.opacity = "0";
+            setTimeout(function() {
+                document.getElementById("tela-bloqueio").style.display = "none";
+                document.getElementById("conteudo-site").style.display = "block";
+            }, 500);
+        }
 
-        <p>e claaaaro que não pode faltar um clássico dos jornais do Deco:</p>
-        <div class="box-acrostico">
-            <strong>A</strong>- moroso<br>
-            <strong>N</strong>- ervosinho rsrs<br>
-            <strong>D</strong>- edicado<br>
-            <strong>R</strong>- espondão rsrs<br>
-            <strong>E</strong>- specialmente incrível
-        </div>
+        function controlarMusica() {
+            const video = document.getElementById("video-fundo");
+            const btn = document.getElementById("btn-player");
+            if (video.paused) {
+                video.play();
+                btn.innerHTML = "⏸️ Tocando: Que Nem Maré";
+                btn.style.backgroundColor = "#28a745";
+            } else {
+                video.pause();
 
-        <p>Brinks, até quando você fica chato eu te amo...</p>
-        <p>Bom, você criou nosso site documentando nossa história em capítulos, chegou minha vez de continuar... então lá vai!</p>
-        <p>Eu espero, do fundo do meu coração, que eu possa te enviar novos e-mails e que eu possa usar livremente a palavra "amor" sem ter nenhum tipo de estranheza ao falar isso. Eu estava pensando na gente hoje e percebi o quanto sinto falta de te enviar e-mails. A gente fazia isso com tanta frequência antes, e essa é mais uma daquelas coisas de que tenho sentido muita saudade ultimamente. Por isso, decidi te escrever hoje para deixar registradas algumas coisas que eu queria muito que você soubesse real oficial.</p>
-
-        <p>A primeira delas é que você não sabe o quanto eu sou grata. Por mais que as coisas não estejam muito legais no momento para nós, e por mais que a gente esteja passando por essa situação delicada (que nenhum de nós queria que estivesse acontecendo), você sempre acredita que eu sou capaz de mudar. indiretamente você é a pessoa que mais me motiva...</p>
-        <p>Eu queria muito, muito te agradecer por acreditar em mim, porque isso significa o mundo para mim. Saber que você acredita na minha melhora pra que a gente consiga ficar junto me dá muita força.</p>
-        <p>E eu quero que você saiba que eu também acredito muito em você. Eu não estou falando isso só porque eu gosto de você ou para te deixar feliz, mas porque eu realmente tenho certeza de que você é uma das mentes mais incríveis e brilhantes que eu já conheci. E olha que isso não é nem 1% do que me faz gostar de você. Tenho pedido pra Deus, todos os dias, para te levar aos lugares mais altos que você pode alcançar, porque você merece por todo seu esforço em tudo que você faz!</p>
-
-        <h2>💻 Nosso Aplicativo e Nosso Futuro</h2>
-        <p>A ideia desse e-mail é principalmente te falar que, apesar dessa situação delicada, eu tenho levado tudo isso para Deus todos os dias. Todos os dias eu tenho feito isso porque eu acredito muito que quando as coisas ficam uma loucura a gente tem que dar uma de louco também KKKKKKK, mas no bom sentido, para as coisas darem certo.</p>
-        <p>Eu pensei bem e senti uma vontade e uma certa urgência de levar as coisas para Deus de uma forma mais incisiva. Acho que isso eu já deveria ter feito antes inclusive... As vezes eu penso que algumas coisas que vem acontecendo não só com a gente junto, mas comigo na minha vida, e com você, e eu acredito de verdade que muito disso pode ser espiritual, que isso só está fortalecendo a gente e que ainda temos muita coisa para conquistar e melhorar juntos. Quando a gente faz tudo com um propósito para Deus e consagra na mão d'Ele, sempre vai acontecer situações dessas, mas ainda bem que Ele cuida de tudo.</p>
-        <p>Por isso, eu decidi começar um propósito com Deus por nós dois, pelo nosso futuro e pelo nosso aplicativo.</p>
-
-        <h2>🧎‍♀️ O Propósito e a Entrega Espiritual</h2>
-        <p>Você já sabe que eu estou cuidando de mim fisicamente e mentalmente. Tanto na terapia, no muay thai, os remédios, tocando na igreja que me faz tão bem, e fazendo tudo aquilo que eu amo na música e no nosso trabalho...</p>
-        <p>Mas, eu acredito que Deus esteja pedindo mais de mim espiritualmente, e eu acredito que tem coisas que pra gente alcançar nós precisamos estar fortes espiritualmente.</p>
-        <p>Eu pensei em abrir mão de uma besteira QUE PODE NÃO PARECER NADA mas que gosto muito e que vai ser muito difícil ficar sem: o açúcar. Decidi que, contando de hoje até o dia <span class="marcado">17 de outubro</span>, vou ficar sem açúcar nenhum. Também vou fazer jejum semanalmente e continuar orando às 3 horas da manhã.</p>
-        <p>Estou fazendo tudo isso pra que eu fique bem, pra que Deus possa trabalhar dentro de mim e da minha mente, também pelo nosso futuro e o nosso aplicativo, que é um trabalho que estamos fazendo para Deus. Eu acredito que Deus une propósitos, e esse App virou o meu sonho também. Estou sonhando junto com você. Eu sei que isso vai dar certo, ou melhor, já deu!</p>
-        <p>Quero que você saiba que estou com você para tudo o que acontecer e tudo o que você precisar. Mesmo se um dia ninguém estiver disposto a encarar esses desafios com você, eu vou estar aqui.</p>
-
-        <h2>✨ Um Convite para Você</h2>
-        <p>E eu queria te propor: se você tiver vontade e quiser, topa entrar nesse propósito junto comigo? Deixar de lado alguma coisa que você goste muito por esse período para a gente consagrar nossos planos a Deus? Eu tenho sentido essa vontade faz uns dias. Se você sentir no coração que quer isso, me avisa e a gente começa juntos. Mas, se não quiser, está tudo bem também. Eu só queria que você soubesse disso.</p>
-        <p>E assim finalizamos mais uma edição do jornal do Deco, só que escrito por mimm! e não poderia esquecer da entrevistaaaaa:</p>
-
-        <div class="box-entrevista">
-            <p><strong>Dany repórter:</strong> Como você está se sentindo hoje Dany Zika?</p>
-            <p><strong>Dany normal:</strong> Eu to me sentindo bem, só a coluna doendo um pouco acho que é mal jeito</p>
-            <p><strong>Dany repórter:</strong> Qual versículo você quer deixar para o leitor?</p>
-            <p style="padding-left:10px; border-left:2px solid #666; font-style:italic;">
-                "O amor é paciente, o amor é bondoso. Não envieja, não se vangloria, não se orgulha. Não maltrata, não procura seus interesses, não se ira facilmente, não guarda rancor. O amor não se alegra com a injustiça, mas se alegrará com a verdade. Tudo sofre, tudo crê, tudo espera, tudo suporta." <br><strong>— 1 Coríntios 13:4-7</strong>
-            </p>
-        </div>
-
-        <p>Eu estou morrendo de saudade de você e sonhando todos os dias com o momento em que vou voltar a te chamar de amor. Eu te amo, André Felipe. Por mais que eu tentasse odiar você, eu simplesmente não consigo. Eu te amo. Obrigada por acreditar em mim, de verdade, e agora aguenta porque eu aprendi a fazer sites HAHAHAHAHAHAHAHHAHAHA.</p>
-
-        <div class="rodape">
-            Com todo o meu coração,<br>
-            <strong>Sua futura namorada/esposa 👑</strong><br><br>
-            <small>🔒 Edição Especial Dany Zika · Escrito com fé</small>
