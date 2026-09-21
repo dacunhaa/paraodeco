@@ -8,251 +8,63 @@
     <meta http-equiv="Expires" content="0" />
     <title>Revista recadinhos para o Deco, com muito amor</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
-            color: #111111;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 5px;
-            margin-top: 10px;
-            line-height: 1.2;
-        }
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 8px;
-        }
-        .subtitle {
-            color: #666666;
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-        }
-        .intro-phrase {
-            font-style: italic;
-            color: #555555;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            background-color: #f9f9f9;
-            padding: 10px 15px;
-            border-left: 3px solid #e25555;
-            border-radius: 4px;
-        }
-        .heart-icon {
-            color: #e25555;
-            font-size: 1.5rem;
-            margin: 15px 0;
-        }
-        p {
-            font-size: 1.05rem;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-        .music-player {
-            background: #f8f9fa;
-            border: 1px solid #eaeaea;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .player-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .player-title {
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-        .player-author {
-            color: #666666;
-            font-size: 0.85rem;
-        }
-        .play-btn {
-            background-color: #111111;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: background 0.2s;
-        }
-        .play-btn:hover {
-            background-color: #333333;
-        }
-        .cover-container {
-            width: 100%;
-            margin-bottom: 30px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            background-color: #f4f4f4;
-            aspect-ratio: 16 / 9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888888;
-        }
-        .cover-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        /* Box da Charada */
-        .riddle-container {
-            background-color: #fff9db;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 25px 0;
-            border-left: 5px solid #fcc419;
-        }
-        .riddle-question {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-        .riddle-answer {
-            font-style: italic;
-            font-weight: 500;
-            color: #444444;
-        }
-
-        /* Estilo do Acróstico do ANDRE */
-        .acrostic-container {
-            background-color: #fafafa;
-            border-radius: 16px;
-            padding: 25px;
-            margin: 30px 0;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.02);
-        }
-        .acrostic-line {
-            display: flex;
-            align-items: baseline;
-            margin-bottom: 15px;
-            font-size: 1.15rem;
-        }
-        .acrostic-letter {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #111111;
-            margin-right: 12px;
-            font-family: serif;
-            display: inline-block;
-            width: 35px;
-        }
-        .acrostic-text {
-            color: #333333;
-            font-weight: 500;
-        }
-
-        /* Box da Entrevista */
-        .interview-container {
-            background-color: #f1f3f5;
-            border-radius: 16px;
-            padding: 25px;
-            margin: 35px 0;
-        }
-        .interview-line {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-        .speaker-reporter {
-            font-weight: 800;
-            color: #e25555;
-        }
-        .speaker-normal {
-            font-weight: 800;
-            color: #228be6;
-        }
-
-        .new-photo-box {
-            width: 100%;
-            height: 450px;
-            background-color: #f9f9f9;
-            border: 1px dashed #cccccc;
-            border-radius: 16px;
-            margin: 30px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777777;
-            font-size: 0.95rem;
-            overflow: hidden;
-        }
-        .new-photo-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .highlight {
-            font-weight: bold;
-            background-color: #fff9db;
-            padding: 0 4px;
-        }
-        .footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #eaeaea;
-            font-size: 0.9rem;
-            color: #666666;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; margin: 0; padding: 0; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-size: 2.2rem; font-weight: 800; margin: 10px 0 5px 0; line-height: 1.2; }
+        h2 { font-size: 1.5rem; font-weight: 700; margin: 40px 0 15px 0; border-bottom: 1px solid #eaeaea; padding-bottom: 8px; }
+        .subtitle { color: #666666; font-size: 1.1rem; margin-bottom: 25px; }
+        .intro-phrase { font-style: italic; color: #555555; font-size: 1.1rem; margin-bottom: 15px; background-color: #f9f9f9; padding: 10px 15px; border-left: 3px solid #e25555; border-radius: 4px; }
+        .heart-icon { color: #e25555; font-size: 1.5rem; margin: 15px 0; }
+        p { font-size: 1.05rem; margin-bottom: 20px; text-align: justify; }
+        .music-player { background: #f8f9fa; border: 1px solid #eaeaea; border-radius: 12px; padding: 15px; margin-bottom: 30px; display: flex; flex-direction: column; gap: 10px; }
+        .player-info { display: flex; align-items: center; gap: 10px; }
+        .player-title { font-weight: 600; font-size: 0.95rem; }
+        .player-author { color: #666666; font-size: 0.85rem; }
+        .play-btn { background-color: #111111; color: #ffffff; border: none; padding: 10px 20px; border-radius: 20px; font-weight: 600; cursor: pointer; font-size: 0.9rem; }
+        .cover-container { width: 100%; margin-bottom: 30px; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background-color: #f4f4f4; aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; color: #888888; }
+        .cover-container img { width: 100%; height: 100%; object-fit: cover; }
+        .riddle-container { background-color: #fff9db; border-radius: 12px; padding: 20px; margin: 25px 0; border-left: 5px solid #fcc419; }
+        .riddle-question { font-weight: 700; font-size: 1.1rem; margin-bottom: 10px; }
+        .riddle-answer { font-style: italic; font-weight: 500; color: #444444; }
+        .acrostic-container { background-color: #fafafa; border-radius: 16px; padding: 25px; margin: 30px 0; }
+        .acrostic-line { display: flex; align-items: baseline; margin-bottom: 15px; font-size: 1.15rem; }
+        .acrostic-letter { font-size: 2.2rem; font-weight: 900; color: #111111; margin-right: 12px; font-family: serif; display: inline-block; width: 35px; }
+        .acrostic-text { color: #333333; font-weight: 500; }
+        .interview-container { background-color: #f1f3f5; border-radius: 16px; padding: 25px; margin: 35px 0; }
+        .interview-line { margin-bottom: 15px; font-size: 1.05rem; }
+        .speaker-reporter { font-weight: 800; color: #e25555; }
+        .speaker-normal { font-weight: 800; color: #228be6; }
+        .new-photo-box { width: 100%; height: 350px; background-color: #f9f9f9; border: 1px dashed #cccccc; border-radius: 16px; margin: 30px 0; display: flex; align-items: center; justify-content: center; color: #777777; font-size: 0.95rem; overflow: hidden; }
+        .new-photo-box img { width: 100%; height: 100%; object-fit: cover; }
+        .highlight { font-weight: bold; background-color: #fff9db; padding: 0 4px; }
+        .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eaeaea; font-size: 0.9rem; color: #666666; }
     </style>
 </head>
 <body>
-
     <div class="container">
         <p style="font-size: 0.85rem; color: #888888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; font-weight: bold;">EDIÇÃO ESPECIAL DANY ZIKA</p>
         <h1>Revista recadinhos para o Deco, com muito amor</h1>
         <div class="subtitle">Contando os dias até 17 de Outubro 🗓</div>
         
-        <div class="intro-phrase">
-            "nossa cara quando a gente tá separado... tristinhos olha que dó"
-        </div>
+        <div class="intro-phrase">"nossa cara quando a gente tá separado... tristinhos olha que dó"</div>
 
-        <!-- FOTO DE CAPA (.PNG EM MAIÚSCULO CORRIGIDO) -->
         <div class="cover-container">
             <img src="capa.PNG" alt="Nossa Foto Especial" onerror="this.style.display='none'; this.parentNode.innerHTML='📸 [Foto de Capa do Casal no Metrô]';">
         </div>
 
-        <!-- PLAYER DE MÚSICA CORRIGIDO -->
         <div class="music-player">
             <div class="player-info">
-                🎵 
-                <div>
-                    <div class="player-title">Que Nem Maré</div>
-                    <div class="player-author">Jorge Vercillo</div>
-                </div>
+                🎵 <div><div class="player-title">Que Nem Maré</div><div class="player-author">Jorge Vercillo</div></div>
             </div>
-            <audio id="bg-music" src="https://codesandbox.io" loop></audio>
+            <audio id="bg-music" src="https://mixkit.co" loop></audio>
             <button class="play-btn" id="play-button" onclick="toggleMusic()">▶ Ouvir música enquanto lê</button>
         </div>
 
         <div class="heart-icon">❤</div>
 
         <p>Oi, Deco, olha quemmmm está fazendo um site surpresa agora heinnn, quem diria que eu conseguiria, dedico esse email ao gpt, vs code, github, piracicabana, ifood, americanas, pernabucanas, havaianas.....</p>
-
         <p>bom, espero conseguir fazer esse email tao divertido quanto os seus rsrsrs. eu me lembrei que você começava com uma charadinha então lá vai:</p>
 
-        <!-- CAIXA DA CHARADA -->
         <div class="riddle-container">
             <div class="riddle-question">Sabe qual é a diferença entre um relógio e você?...</div>
             <div class="riddle-answer">Resposta: O relógio avisa o tempo que passou, e com você eu perco a noção do tempo. 🥰</div>
@@ -260,34 +72,33 @@
 
         <p>e claaaaro que não pode faltar um clássico dos jornais do Deco:</p>
 
-        <!-- ÁREA DO ACRÓSTICO DO ANDRE -->
         <div class="acrostic-container">
-            <div class="acrostic-line">
-                <span class="acrostic-letter">A</span>
-                <span class="acrostic-text">moroso</span>
-            </div>
-            <div class="acrostic-line">
-                <span class="acrostic-letter">N</span>
-                <span class="acrostic-text">ervosinho rsrs</span>
-            </div>
-            <div class="acrostic-line">
-                <span class="acrostic-letter">D</span>
-                <span class="acrostic-text">edicado</span>
-            </div>
-            <div class="acrostic-line">
-                <span class="acrostic-letter">R</span>
-                <span class="acrostic-text">espondão rsrs</span>
-            </div>
-            <div class="acrostic-line">
-                <span class="acrostic-letter">E</span>
-                <span class="acrostic-text">specialmente incrível</span>
-            </div>
+            <div class="acrostic-line"><span class="acrostic-letter">A</span><span class="acrostic-text">moroso</span></div>
+            <div class="acrostic-line"><span class="acrostic-letter">N</span><span class="acrostic-text">ervosinho rsrs</span></div>
+            <div class="acrostic-line"><span class="acrostic-letter">D</span><span class="acrostic-text">edicado</span></div>
+            <div class="acrostic-line"><span class="acrostic-letter">R</span><span class="acrostic-text">espondão rsrs</span></div>
+            <div class="acrostic-line"><span class="acrostic-letter">E</span><span class="acrostic-text">specialmente incrível</span></div>
         </div>
 
         <p>Brinks, até quando você fica chato eu te amo...</p>
-
         <p>Bom, você criou nosso site documentando nossa história em capítulos, chegou minha vez de continuar... então lá vai!</p>
-
         <p>Eu espero, do fundo do meu coração, que eu possa te enviar novos e-mails e que eu possa usar livremente a palavra "amor" sem ter nenhum tipo de estranheza ao falar isso. Eu estava pensando na gente hoje e percebi o quanto sinto falta de te enviar e-mails. A gente fazia isso com tanta frequência antes, e essa é mais uma daquelas coisas de que tenho sentido muita saudade ultimamente. Por isso, decidi te escrever hoje para deixar registradas algumas coisas que eu queria muito que você soubesse real oficial.</p>
 
-        <!-- ESPAÇO PARA NOVA FOTO 1 -->
+        <div class="new-photo-box">📸 [Espaço para Nova Foto 1 - novafoto1.png]</div>
+
+        <p>A primeira delas é que você não sabe o quanto eu sou grata. Por mais que as coisas não estejam muito legais no momento para nós, e por mais que a gente esteja passando por essa situação delicada (que nenhum de nós queria que estivesse acontecendo), você sempre acredita que eu sou capaz de mudar. indiretamente você é a pessoa que mais me motiva...</p>
+        <p>Eu queria muito, muito te agradecer por acreditar em mim, porque isso significa o mundo para mim. Saber que você acredita na minha melhora pra que a gente consiga ficar junto me dá muita força.</p>
+        <p>E eu quero que você saiba que eu também acredito muito em você. Eu não estou falando isso só porque eu gosto de você ou para te deixar feliz, mas porque eu realmente tenho certeza de que você é uma das mentes mais incríveis e brilhantes que eu já conheci. E olha que isso não é nem 1% do que me faz gostar de você. Tenho pedido pra Deus, todos os dias, para te levar aos lugares mais altos que você pode alcançar, porque você merece por todo seu esforço em tudo que você faz!</p>
+
+        <div class="new-photo-box">📸 [Espaço para Nova Foto 2 - novafoto2.png]</div>
+
+        <h2>💻 Nosso Aplicativo e Nosso Futuro</h2>
+        <p>A ideia desse e-mail é principalmente te falar que, apesar dessa situação delicada, eu tenho levado tudo isso para Deus todos os dias. Todos os dias eu tenho feito isso porque eu acredito muito que quando as coisas ficam uma loucura a gente tem que dar uma de louco também KKKKKKK, mas no bom sentido, para as coisas darem certo.</p>
+        <p>Eu pensei bem e senti uma vontade e uma certa urgência de levar as coisas para Deus de uma forma mais incisiva. Acho que isso eu já deveria ter feito antes inclusive... As vezes eu penso que algumas coisas que vem acontecendo não só com a gente junto, mas comigo na minha vida, e com você, e eu acredito de verdade que muito disso pode ser espiritual, que isso só está fortalecendo a gente e que ainda temos muita coisa para conquistar e melhorar juntos. Quando a gente faz tudo com um propósito para Deus e consagra na mão d'Ele, sempre vai acontecer situações dessas, mas ainda bem que He cuida de tudo.</p>
+        <p>Por isso, eu decidi começar um propósito com Deus por nós dois, pelo nosso futuro e pelo nosso aplicativo.</p>
+
+        <div class="new-photo-box">📸 [Espaço para Nova Foto 3 - novafoto3.png]</div>
+
+        <h2>🧎‍♀️ O Propósito e a Entrega Espiritual</h2>
+        <p>Você já sabe que eu estou cuidando de mim fisicamente e mentalmente. Tanto na terapia, no muay thai, os remédios, tocando na igreja que me faz tão bem, e fazendo tudo aquilo que eu amo na música e no nosso trabalho...</p>
+
