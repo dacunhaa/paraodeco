@@ -74,7 +74,7 @@
         const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
         document.getElementById("dias").innerHTML = dias < 10 ? "0" + dias : dias;
         document.getElementById("horas").innerHTML = horas < 10 ? "0" + horas : horas;
-        document.getElementById("minutos").innerHTML = minutes < 10 ? "0" + minutos : minutos;
+        document.getElementById("minutos").innerHTML = minutos < 10 ? "0" + minutos : minutos;
         document.getElementById("segundos").innerHTML = segundos < 10 ? "0" + segundos : segundos;
         if (diferenca < 0) {
             clearInterval(intervalo);
