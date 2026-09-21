@@ -27,7 +27,35 @@
     <div class="wrapper">
         <div class="tag">EDIÇÃO ESPECIAL DANY ZIKA</div>
         <h1>Revista recadinhos para o Deco, com muito amor</h1>
-        <div class="sub">Contando os dias até 17 de Outubro 🗓</div>
+        <div class="sub"><div class="subtitle" id="contador">Carregando contagem regressiva... 🗓</div>
+
+<script>
+    // Define a data alvo: 17 de Outubro às 00:00:00
+    const dataAlvo = new Date("Oct 17, 2026 00:00:00").getTime();
+
+    // Atualiza o cronômetro a cada 1 segundo
+    const intervalo = setInterval(function() {
+        const agora = new Date().getTime();
+        const diferenca = dataAlvo - agora;
+
+        // Cálculos de tempo para dias, horas, minutos e segundos
+        const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+        // Exibe o resultado no elemento com id="contador"
+        document.getElementById("contador").innerHTML = 
+            "Faltam " + dias + " dias, " + horas + "h " + minutos + "m " + segundos + "s para o nosso dia! 🗓❤️";
+
+        // Se a contagem terminar, exibe uma mensagem especial
+        if (diferenca < 0) {
+            clearInterval(intervalo);
+            document.getElementById("contador").innerHTML = "Chegou o nosso grande dia! 🥰🎉";
+        }
+    }, 1000);
+</script>
+/div>
         <div class="quote">"nossa cara quando a gente tá separado... tristinhos olha que dó"</div>
 
         <!-- CONFIGURADO EXATAMENTE PARA CAPA.JPG DA SUA IMAGEM -->
