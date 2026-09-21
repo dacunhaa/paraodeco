@@ -44,9 +44,10 @@
         .countdown-label { font-size: 11px; text-transform: uppercase; opacity: 0.9; display: block; margin-top: 2px; }
         .countdown-footer { color: #d63384; font-weight: bold; margin-top: 15px; font-size: 15px; }
         
-        /* BOTÃO DO PLAYER */
-        .btn-player { display: block; background-color: #d63384; color: white; text-align: center; padding: 12px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 25px auto; max-width: 450px; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(214, 51, 132, 0.2); }
-        #audio-player { display: none; }
+        /* NOVO CARTÃO DA MÚSICA */
+        .player-card { background: #fff5f7; border: 1px dashed #0056b3; border-radius: 12px; padding: 15px; text-align: center; margin: 20px auto; max-width: 450px; }
+        .player-card p { text-align: center; font-weight: bold; color: #0056b3; margin-bottom: 10px; font-size: 15px; }
+        audio { width: 100%; margin-top: 5px; }
     </style>
 </head>
 <body>
@@ -55,15 +56,10 @@
     <div id="tela-bloqueio">
         <div class="lock-card">
             <div class="lock-title">Surpresa para o meu Deco! ❤️</div>
-            <div class="lock-sub">Prepare os fones de ouvido e clique abaixo para abrir sua revista especial.</div>
+            <div class="lock-sub">Clique abaixo para abrir sua revista especial.</div>
             <button class="btn-desbloquear" onclick="desbloquearSite()">🔓 Abrir Revista</button>
         </div>
     </div>
-
-    <!-- PLAYER DE ÁUDIO LIVRE DE ANÚNCIOS (ESCONDIDO) -->
-    <audio id="audio-player" loop preload="auto">
-        <source src="https://soundhelix.com" type="audio/mp3">
-    </audio>
 
     <!-- CONTEÚDO PRINCIPAL DO SITE -->
     <div id="conteudo-site">
@@ -83,7 +79,14 @@
                 <div class="countdown-footer">para o nosso dia! ❤️</div>
             </div>
 
-            <button class="btn-player" id="btn-player" onclick="controlarMusica()">⏸️ Música Ativada</button>
+            <!-- CARTÃO DE ÁUDIO REAL DE FÁCIL ACESSO -->
+            <div class="player-card">
+                <p>🎵 Aperte o PLAY para ouvir "Que Nem Maré" enquanto lê:</p>
+                <audio controls loop>
+                    <source src="https://soundhelix.com" type="audio/mp3">
+                    Seu navegador não suporta o tocador de áudio.
+                </audio>
+            </div>
 
             <p>Oi, Deco, olha quemmmm está fazendo um site surpresa agora heinnn... se você pensou na sua namorada favorita, você acertouuu (espero q eu seja a única kkkk brincadeira amor)!</p>
 
@@ -122,24 +125,18 @@
     </div>
 
     <script>
-        var player = document.getElementById('audio-player');
-
         function desbloquearSite() {
-            // Some com a tela de bloqueio e mostra o site
             document.getElementById("tela-bloqueio").style.opacity = "0";
-            
             setTimeout(function() {
                 document.getElementById("tela-bloqueio").style.display = "none";
                 document.getElementById("conteudo-site").style.display = "block";
-                
-                // Ativa o áudio imediatamente após a liberação do clique
-                player.play().catch(function(error) {
-                    console.log("Erro de segurança do navegador: ", error);
-                });
             }, 500);
         }
 
-        function controlarMusica() {
-            const btn = document.getElementById("btn-player");
-            if (player.paused) {
-                player.play();
+        // Lógica do Contador Regressivo para 17 de Outubro de 2026
+        const dataAlvo = new Date("Oct 17, 2026 00:00:00").getTime();
+        setInterval(function() {
+            const agora = new Date().getTime();
+            const diferenca = dataAlvo - agora;
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
