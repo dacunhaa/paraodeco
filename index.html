@@ -44,8 +44,9 @@
         .countdown-label { font-size: 11px; text-transform: uppercase; opacity: 0.9; display: block; margin-top: 2px; }
         .countdown-footer { color: #d63384; font-weight: bold; margin-top: 15px; font-size: 15px; }
         
+        /* BOTÃO DO PLAYER */
         .btn-player { display: block; background-color: #28a745; color: white; text-align: center; padding: 12px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 25px auto; max-width: 450px; border: none; cursor: pointer; }
-        #video-fundo { display: none; }
+        #player-sc { display: none; }
     </style>
 </head>
 <body>
@@ -59,10 +60,8 @@
         </div>
     </div>
 
-    <!-- VIDEO QUE FICA EM SEGREDO APENAS TOCANDO O SOM -->
-    <video id="video-fundo" loop>
-        <source src="musica.mp4" type="video/mp4">
-    </video>
+    <!-- PLAYER DE ÁUDIO EMBUTIDO DO SOUNDCLOUD (ESCONDIDO) -->
+    <iframe id="player-sc" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://soundcloud.com"></iframe>
 
     <!-- CONTEÚDO PRINCIPAL DO SITE -->
     <div id="conteudo-site">
@@ -120,12 +119,16 @@
         </div>
     </div>
 
+    <!-- SCRIPT DE CONTROLE DO SOUNDCLOUD -->
+    <script src="https://soundcloud.com"></script>
     <script>
+        var widget = SC.Widget(document.getElementById('player-sc'));
+        var tocando = false;
+
         function desbloquearSite() {
-            const video = document.getElementById("video-fundo");
-            video.play().catch(function(error) {
-                console.log("Navegador barrou o som inicial: ", error);
-            });
+            // Inicia o som do SoundCloud assim que clica no botão
+            widget.play();
+            tocando = true;
 
             document.getElementById("tela-bloqueio").style.opacity = "0";
             setTimeout(function() {
@@ -135,12 +138,4 @@
         }
 
         function controlarMusica() {
-            const video = document.getElementById("video-fundo");
             const btn = document.getElementById("btn-player");
-            if (video.paused) {
-                video.play();
-                btn.innerHTML = "⏸️ Tocando: Que Nem Maré";
-                btn.style.backgroundColor = "#28a745";
-            } else {
-                video.pause();
-
