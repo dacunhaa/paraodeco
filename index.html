@@ -12,7 +12,6 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
         }
         .container {
             max-width: 700px;
@@ -20,17 +19,6 @@
             padding: 40px 20px;
         }
         
-        /* Animação de surgimento suave */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         h1 {
             font-size: 2.2rem;
             font-weight: 800;
@@ -53,12 +41,6 @@
             color: #e25555;
             font-size: 1.5rem;
             margin: 20px 0;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
         }
         p {
             font-size: 1.05rem;
@@ -97,15 +79,6 @@
             color: #888888;
             font-size: 0.85rem;
             overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-        .photo-box:hover {
-            transform: scale(1.03);
-        }
-        .photo-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
         .photo-caption {
             font-size: 0.95rem;
@@ -131,74 +104,68 @@
 <body>
 
     <div class="container">
-        <div class="fade-in">
-            <p style="font-size: 0.9rem; color: #888888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Edição Especial de Resposta</p>
-            <h1>Propósito & Nosso Coração</h1>
-            <div class="subtitle">Contando os dias até 17 de Outubro 🗓</div>
-            <div class="heart-icon">❤</div>
+        <p style="font-size: 0.9rem; color: #888888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Edição Especial de Resposta</p>
+        <h1>Propósito & Nosso Coração</h1>
+        <div class="subtitle">Contando os dias até 17 de Outubro 🗓</div>
+        <div class="heart-icon">❤</div>
 
-            <p>Oi, Deco,</p>
+        <p>Oi, Deco,</p>
 
-            <p>Eu espero, do fundo do meu coração, que eu possa te enviar novos e-mails e que eu possa usar livremente a palavra "amor" sem ter nenhum tipo de estranheza ao falar isso.</p>
+        <p>Eu espero, do fundo do meu coração, que eu possa te enviar novos e-mails e que eu possa usar livremente a palavra "amor" sem ter nenhum tipo de estranheza ao falar isso.</p>
 
-            <p>Eu estava pensando na gente hoje e percebi o quanto sinto falta de te enviar e-mails. A gente fazia isso com tanta frequência antes, e essa é mais uma daquelas coisas doces de que tenho sentido muita saudade ultimamente. Por isso, decidi te escrever hoje para deixar registradas algumas coisas que eu queria muito que você soubesse, do fundo do meu coração.</p>
-        </div>
+        <p>Eu estava pensando na gente hoje e percebi o quanto sinto falta de te enviar e-mails. A gente fazia isso com tanta frequência antes, e essa é mais uma daquelas coisas doces de que tenho sentido muita saudade ultimamente. Por isso, decidi te escrever hoje para deixar registradas algumas coisas que eu queria muito que você soubesse, do fundo do meu coração.</p>
 
         <!-- DIÁRIO VISUAL - AS 3 COLUNAS IGUAIS À FOTO -->
-        <div class="gallery-container fade-in">
+        <div class="gallery-container">
             <div class="gallery-item">
                 <div class="photo-box">
-                    <!-- Quando tiver a foto, troque o 'foto1.jpg' pelo nome dela -->
-                    <img src="foto1.jpg" alt="Jonas Brothers" onerror="this.style.display='none'; this.parentNode.innerHTML='📸 Foto 1';">
+                    📸 Jonas Brothers
                 </div>
                 <div class="photo-caption">Jonas Brothers 🎤</div>
             </div>
             
             <div class="gallery-item">
                 <div class="photo-box">
-                    <img src="foto2.jpg" alt="Final da Kings League" onerror="this.style.display='none'; this.parentNode.innerHTML='📸 Foto 2';">
+                    📸 Kings League
                 </div>
                 <div class="photo-caption">a final da Kings League 🏆</div>
             </div>
             
             <div class="gallery-item">
                 <div class="photo-box">
-                    <img src="foto3.jpg" alt="Nossa primeira Copa" onerror="this.style.display='none'; this.parentNode.innerHTML='📸 Foto 3';">
+                    📸 Copa BR
                 </div>
                 <div class="photo-caption">nossa primeira Copa BR</div>
             </div>
         </div>
 
-        <div class="fade-in">
-            <p>A primeira delas é que você não sabe o quanto eu sou grata. Por mais que as coisas não tenham sido muito legais para nós ultimamente, e por mais que a gente esteja passando por essa situação delicada — que nenhum de nós queria que estivesse acontecendo —, você sempre acreditou que eu fosse capaz de mudar as coisas. Eu queria muito, muito te agradecer por acreditar em mim, porque isso significa o mundo para mim. Saber que você acredita na minha melhora para que a gente consiga ficar junto me dá muita força.</p>
+        <p>A primeira delas é que você não sabe o quanto eu sou grata. Por mais que as coisas não tenham sido muito legais para nós ultimamente, e por mais que a gente esteja passando por essa situação delicada — que nenhum de nós queria que estivesse acontecendo —, você sempre acreditou que eu fosse capaz de mudar as coisas. Eu queria muito, muito te agradecer por acreditar em mim, porque isso significa o mundo para mim. Saber que você acredita na minha melhora para que a gente consiga ficar junto me dá muita força.</p>
 
-            <p>E eu quero que você saiba que eu também acredito muito in você, no seu potencial e em tudo o que você é capaz de fazer e alcançar. Eu não estou falando isso só porque eu gosto de você ou para te deixar feliz, mas porque eu realmente tenho certeza de que você é uma das mentes mais incríveis e brilhantes que eu já conheci. E olha que isso não é nem 1% do que me faz gostar de você.</p>
+        <p>E eu quero que você saiba que eu também acredito muito em você, no seu potencial e em tudo o que você é capaz de fazer e alcançar. Eu não estou falando isso só porque eu gosto de você ou para te deixar feliz, mas porque eu realmente tenho certeza de que você é uma das mentes mais incríveis e brilhantes que eu já conheci. E olha que isso não é nem 1% do que me faz gostar de você.</p>
 
-            <h2>💻 Nosso Aplicativo e Nosso Futuro</h2>
-            <p>A ideia desse e-mail é principalmente te falar que, apesar dessa situação delicada, eu tenho levado tudo isso para Deus todos os dias. Todos os dias eu tenho feito isso porque eu acredito muito que as coisas podem dar certo. Eu acredito muito no nosso trabalho junto com o aplicativo e acredito de verdade no nosso futuro juntos.</p>
+        <h2>💻 Nosso Aplicativo e Nosso Futuro</h2>
+        <p>A ideia desse e-mail é principalmente te falar que, apesar dessa situação delicada, eu tenho levado tudo isso para Deus todos os dias. Todos os dias eu tenho feito isso porque eu acredito muito que as coisas podem dar certo. Eu acredito muito no nosso trabalho junto com o aplicativo e acredito de verdade no nosso futuro juntos.</p>
 
-            <h2>🧎‍♀️ O Propósito e a Urgência Espiritual</h2>
-            <p>Eu pensei bem e senti uma vontade e uma certa urgência de levar as coisas para Deus de uma forma mais incisiva. Acho que faltou a gente levar o nosso relacionamento mais pelo lado espiritual antes. Pelas coisas que acontecem, eu acredito de verdade que tudo isso é espiritual, que isso só está fortalecendo a gente e que ainda temos muita coisa para conquistar e melhorar juntos. Quando a gente faz tudo com um propósito para Deus e consagra na mão d'Ele, Ele cuida de tudo.</p>
+        <h2>🧎‍♀️ O Propósito e a Urgência Espiritual</h2>
+        <p>Eu pensei bem e senti uma vontade e uma certa urgência de levar as coisas para Deus de uma forma mais incisiva. Acho que faltou a gente levar o nosso relacionamento mais pelo lado espiritual antes. Pelas coisas que acontecem, eu acredito de verdade que tudo isso é espiritual, que isso só está fortalecendo a gente e que ainda temos muita coisa para conquistar e melhorar juntos. Quando a gente faz tudo com um propósito para Deus e consagra na mão d'Ele, Ele cuida de tudo.</p>
 
-            <p>Por isso, eu decidi começar um propósito com Deus por nós dois, pelo nosso futuro e pelo nosso aplicativo. Eu já estou cuidando de mim fisicamente e mentalmente — estou na terapia, firme no Muay Thai, lendo, estudando, me apegando muito com a música e com os meus remédios. Tudo isso tem me ajudado muito, mas o lado espiritual é importante demais.</p>
+        <p>Por isso, eu decidi começar um propósito com Deus por nós dois, pelo nosso futuro e pelo nosso aplicativo. Eu já estou cuidando de mim fisicamente e mentalmente — estou na terapia, firme no Muay Thai, lendo, estudando, me apegando muito com a música e com os meus remédios. Tudo isso tem me ajudado muito, mas o lado espiritual é importante demais.</p>
 
-            <p>Eu pensei em abrir mão de uma besteira que gosto muito e que vai ser muito difícil ficar sem: o açúcar. Decidi que, contando de hoje até o dia <span class="highlight">17 de outubro</span>, vou ficar sem açúcar nenhum. Também vou fazer jejum semanalmente e continuar orando na madrugada, às 3 horas da manhã. Estou fazendo tudo isso pensando no nosso futuro e no nosso aplicativo, que é um trabalho para a obra de Deus. Eu acredito que Deus une propósitos, e esse app virou o meu sonho e a minha vontade também. Estou sonhando junto com você.</p>
+        <p>Eu pensei em abrir mão de uma besteira que gosto muito e que vai ser muito difícil ficar sem: o açúcar. Decidi que, contando de hoje até o dia <span class="highlight">17 de outubro</span>, vou ficar sem açúcar nenhum. Também vou fazer jejum semanalmente e continuar orando na madrugada, às 3 horas da manhã. Estou fazendo tudo isso pensando no nosso futuro e no nosso aplicativo, que é um trabalho para a obra de Deus. Eu acredito que Deus une propósitos, e esse app virou o meu sonho e a minha vontade também. Estou sonhando junto com você.</p>
 
-            <p>Quero que você saiba que estou com você para tudo o que acontecer e tudo o que você precisar. Mesmo que um dia ninguém queira ou esteja disposto a te ajudar, eu vou estar aqui por você.</p>
+        <p>Quero que você saiba que estou com você para tudo o que acontecer e tudo o que você precisar. Mesmo que um dia ninguém queira ou esteja disposto a te ajudar, eu vou estar aqui por você.</p>
 
-            <h2>✨ Um Convite para Você</h2>
-            <p>E eu queria te propor: se você tiver vontade e quiser, topa entrar nesse propósito junto comigo? Deixar de lado alguma coisa que você goste muito por esse período para a gente consagrar nossos planos a Deus? Eu tenho sentido essa urgência no mundo espiritual. Se você sentir no coração que quer isso, me avisa e a gente começa juntos. Mas, se não quiser, está tudo bem também. Eu só queria muito que você soubesse disso.</p>
+        <h2>✨ Um Convite para Você</h2>
+        <p>E eu queria te propor: se você tiver vontade e quiser, topa entrar nesse propósito junto comigo? Deixar de lado alguma coisa que você goste muito por esse período para a gente consagrar nossos planos a Deus? Eu tenho sentido essa urgência no mundo espiritual. Se você sentir no coração que quer isso, me avisa e a gente começa juntos. Mas, se não quiser, está tudo bem também. Eu só queria muito que você soubesse disso.</p>
 
-            <p>Eu estou morrendo de saudade de você e sonhando todos os dias com o momento em que vou voltar a te chamar de amor. Eu te amo, André Felipe. Por mais que eu tentasse odiar você, eu simplesmente não consigo. Eu te amo. Obrigado por tudo, de verdade.</p>
+        <p>Eu estou morrendo de saudade de você e sonhando todos os dias com o momento em que vou voltar a te chamar de amor. Eu te amo, André Felipe. Por mais que eu tentasse odiar você, eu simplesmente não consigo. Eu te amo. Obrigado por tudo, de verdade.</p>
 
-            <div class="footer">
-                Com todo o meu coração,<br>
-                <strong>Sua futura esposa 👑</strong><br><br>
-                <small>🔒 Edição Especial de Resposta · Escrito com fé</small>
-            </div>
+        <div class="footer">
+            Com todo o meu coração,<br>
+            <strong>Sua futura esposa 👑</strong><br><br>
+            <small>🔒 Edição Especial de Resposta · Escrito com fé</small>
         </div>
     </div>
 
-    <!-- Script para ativar o efeito de animação ao rolar a página -->
-    <script>
-
+</body>
+</html>
