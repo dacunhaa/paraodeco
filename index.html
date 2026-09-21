@@ -23,6 +23,7 @@
             font-size: 2.2rem;
             font-weight: 800;
             margin-bottom: 5px;
+            margin-top: 25px;
         }
         h2 {
             font-size: 1.5rem;
@@ -35,12 +36,12 @@
         .subtitle {
             color: #666666;
             font-size: 1.1rem;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         .heart-icon {
             color: #e25555;
             font-size: 1.5rem;
-            margin: 20px 0;
+            margin: 15px 0;
         }
         p {
             font-size: 1.05rem;
@@ -48,43 +49,25 @@
             text-align: justify;
         }
 
-        /* Estrutura da Galeria em 3 Colunas (Igual à Foto) */
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin: 35px 0;
-        }
-        @media (max-width: 600px) {
-            .gallery-container {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-        }
-        .gallery-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .photo-box {
+        /* Estrutura da Foto de Capa Grande e Arredondada */
+        .cover-container {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            border-radius: 20px; /* Borda bem arredondada e moderna */
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra suave para dar destaque */
             background-color: #f4f4f4;
-            border: 2px dashed #cccccc;
-            border-radius: 16px; /* Borda arredondada igual à foto */
+            aspect-ratio: 16 / 9; /* Mantém a proporção linda da foto de vocês */
             display: flex;
             align-items: center;
             justify-content: center;
             color: #888888;
-            font-size: 0.85rem;
-            overflow: hidden;
         }
-        .photo-caption {
-            font-size: 0.95rem;
-            color: #555555;
-            margin-top: 10px;
-            font-weight: 500;
+        .cover-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .highlight {
@@ -107,6 +90,12 @@
         <p style="font-size: 0.9rem; color: #888888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Edição Especial de Resposta</p>
         <h1>Propósito & Nosso Coração</h1>
         <div class="subtitle">Contando os dias até 17 de Outubro 🗓</div>
+        
+        <!-- FOTO DE CAPA DO CASAL -->
+        <div class="cover-container">
+            <img src="capa.jpg" alt="Nossa Foto Especial" onerror="this.style.display='none'; this.parentNode.innerHTML='📸 [Foto de Capa do Casal Carregando...]';">
+        </div>
+
         <div class="heart-icon">❤</div>
 
         <p>Oi, Deco,</p>
@@ -115,33 +104,9 @@
 
         <p>Eu estava pensando na gente hoje e percebi o quanto sinto falta de te enviar e-mails. A gente fazia isso com tanta frequência antes, e essa é mais uma daquelas coisas doces de que tenho sentido muita saudade ultimamente. Por isso, decidi te escrever hoje para deixar registradas algumas coisas que eu queria muito que você soubesse, do fundo do meu coração.</p>
 
-        <!-- DIÁRIO VISUAL - AS 3 COLUNAS IGUAIS À FOTO -->
-        <div class="gallery-container">
-            <div class="gallery-item">
-                <div class="photo-box">
-                    📸 Jonas Brothers
-                </div>
-                <div class="photo-caption">Jonas Brothers 🎤</div>
-            </div>
-            
-            <div class="gallery-item">
-                <div class="photo-box">
-                    📸 Kings League
-                </div>
-                <div class="photo-caption">a final da Kings League 🏆</div>
-            </div>
-            
-            <div class="gallery-item">
-                <div class="photo-box">
-                    📸 Copa BR
-                </div>
-                <div class="photo-caption">nossa primeira Copa BR</div>
-            </div>
-        </div>
-
         <p>A primeira delas é que você não sabe o quanto eu sou grata. Por mais que as coisas não tenham sido muito legais para nós ultimamente, e por mais que a gente esteja passando por essa situação delicada — que nenhum de nós queria que estivesse acontecendo —, você sempre acreditou que eu fosse capaz de mudar as coisas. Eu queria muito, muito te agradecer por acreditar em mim, porque isso significa o mundo para mim. Saber que você acredita na minha melhora para que a gente consiga ficar junto me dá muita força.</p>
 
-        <p>E eu quero que você saiba que eu também acredito muito em você, no seu potencial e em tudo o que você é capaz de fazer e alcançar. Eu não estou falando isso só porque eu gosto de você ou para te deixar feliz, mas porque eu realmente tenho certeza de que você é uma das mentes mais incríveis e brilhantes que eu já conheci. E olha que isso não é nem 1% do que me faz gostar de você.</p>
+        <p>E eu quero que você saiba que eu também acredito muito em você, no seu potenciale em tudo o que você é capaz de fazer e alcançar. Eu não estou falando isso só porque eu gosto de você ou para te deixar feliz, mas porque eu realmente tenho certeza de que você é uma das mentes mais incríveis e brilhantes que eu já conheci. E olha que isso não é nem 1% do que me faz gostar de você.</p>
 
         <h2>💻 Nosso Aplicativo e Nosso Futuro</h2>
         <p>A ideia desse e-mail é principalmente te falar que, apesar dessa situação delicada, eu tenho levado tudo isso para Deus todos os dias. Todos os dias eu tenho feito isso porque eu acredito muito que as coisas podem dar certo. Eu acredito muito no nosso trabalho junto com o aplicativo e acredito de verdade no nosso futuro juntos.</p>
