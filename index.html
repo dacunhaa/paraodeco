@@ -27,34 +27,64 @@
     <div class="wrapper">
         <div class="tag">EDIÇÃO ESPECIAL DANY ZIKA</div>
         <h1>Revista recadinhos para o Deco, com muito amor</h1>
-        <div class="sub"><div class="subtitle" id="contador">Carregando contagem regressiva... 🗓</div>
+        <!-- 1. ESSA PARTE CRIA AS CAIXINHAS NA TELA -->
+<div class="countdown-container">
+    <div class="countdown-title">Contando os dias até 17 de Outubro 🗓️</div>
+    <div class="countdown-box">
+        <div class="countdown-item">
+            <span class="countdown-number" id="dias">00</span>
+            <span class="countdown-label">Dias</span>
+        </div>
+        <div class="countdown-item">
+            <span class="countdown-number" id="horas">00</span>
+            <span class="countdown-label">Horas</span>
+        </div>
+        <div class="countdown-item">
+            <span class="countdown-number" id="minutos">00</span>
+            <span class="countdown-label">Min</span>
+        </div>
+        <div class="countdown-item">
+            <span class="countdown-number" id="segundos">00</span>
+            <span class="countdown-label">Seg</span>
+        </div>
+    </div>
+    <div class="countdown-footer">para o nosso dia! ❤️</div>
+</div>
 
+<!-- 2. ESSA PARTE PINTA AS CAIXINHAS DE AZUL E ROSA -->
+<style>
+    .countdown-container { background: #fff5f7; border: 2px dashed #d63384; border-radius: 15px; padding: 20px; text-align: center; max-width: 450px; margin: 25px auto; box-shadow: 0 4px 10px rgba(214, 51, 132, 0.05); }
+    .countdown-title { color: #0056b3; font-weight: bold; font-size: 16px; margin-bottom: 15px; }
+    .countdown-box { display: flex; justify-content: center; gap: 12px; }
+    .countdown-item { background: #0056b3; color: white; border-radius: 8px; padding: 10px; min-width: 65px; box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2); }
+    .countdown-number { display: block; font-size: 24px; font-weight: bold; font-family: sans-serif; }
+    .countdown-label { font-size: 11px; text-transform: uppercase; opacity: 0.9; display: block; margin-top: 2px; }
+    .countdown-footer { color: #d63384; font-weight: bold; margin-top: 15px; font-size: 15px; }
+</style>
+
+<!-- 3. ESSA PARTE FAZ OS NÚMEROS DIMINUÍREM SOZINHOS -->
 <script>
-    // Define a data alvo: 17 de Outubro às 00:00:00
     const dataAlvo = new Date("Oct 17, 2026 00:00:00").getTime();
-
-    // Atualiza o cronômetro a cada 1 segundo
     const intervalo = setInterval(function() {
         const agora = new Date().getTime();
         const diferenca = dataAlvo - agora;
-
-        // Cálculos de tempo para dias, horas, minutos e segundos
         const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
         const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
         const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
-
-        // Exibe o resultado no elemento com id="contador"
-        document.getElementById("contador").innerHTML = 
-            "Faltam " + dias + " dias, " + horas + "h " + minutos + "m " + segundos + "s para o nosso dia! 🗓❤️";
-
-        // Se a contagem terminar, exibe uma mensagem especial
+        document.getElementById("dias").innerHTML = dias < 10 ? "0" + dias : dias;
+        document.getElementById("horas").innerHTML = horas < 10 ? "0" + horas : horas;
+        document.getElementById("minutos").innerHTML = minutes < 10 ? "0" + minutos : minutos;
+        document.getElementById("segundos").innerHTML = segundos < 10 ? "0" + segundos : segundos;
         if (diferenca < 0) {
             clearInterval(intervalo);
-            document.getElementById("contador").innerHTML = "Chegou o nosso grande dia! 🥰🎉";
+            document.querySelector(".countdown-box").style.display = "none";
+            document.querySelector(".countdown-title").innerHTML = "Chegou o nosso grande dia! 🥰🎉";
+            document.querySelector(".countdown-footer").style.display = "none";
         }
     }, 1000);
 </script>
+
             
         <div class="quote">"nossa cara quando a gente tá separado... tristinhos olha que dó"</div>
 
